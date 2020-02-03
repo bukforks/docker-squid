@@ -10,6 +10,8 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y squid=${SQUID_VERSION}* \
  && rm -rf /var/lib/apt/lists/*
 
+COPY squid.conf /etc/squid/squid.conf
+
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
